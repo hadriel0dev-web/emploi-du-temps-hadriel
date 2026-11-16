@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mon temps — Emploi du temps</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400&family=Syne:wght@600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+  <header class="nav">
+    <span class="logo">MON TEMPS</span>
+    <nav id="nav-jours" aria-label="Jours de la semaine"></nav>
+    <button id="btn-ajouter" type="button">+ Événement</button>
+  </header>
+
+  <div class="progression"><span id="barre"></span></div>
+
+  <main id="parcours">
+    <div class="scene-fixe" id="stage">
+
+      <!-- 8 scènes : l'intro + les 7 jours (images optionnelles dans images/) -->
+      <div class="scene s-0" style="--img:url('images/scene-0.jpg')"></div>
+      <div class="scene s-1" style="--img:url('images/scene-1.jpg')"></div>
+      <div class="scene s-2" style="--img:url('images/scene-2.jpg')"></div>
+      <div class="scene s-3" style="--img:url('images/scene-3.jpg')"></div>
+      <div class="scene s-4" style="--img:url('images/scene-4.jpg')"></div>
+      <div class="scene s-5" style="--img:url('images/scene-5.jpg')"></div>
+      <div class="scene s-6" style="--img:url('images/scene-6.jpg')"></div>
+      <div class="scene s-7" style="--img:url('images/scene-7.jpg')"></div>
+
+      <!-- Intro -->
+      <h1 class="titre-hero" data-scene="0">MON TEMPS</h1>
+      <p class="sous-titre" data-scene="0">Votre semaine, en mouvement.</p>
+      <p class="indice" data-scene="0">Faites défiler</p>
+
+      <!-- Les panneaux des jours sont créés par script.js -->
+    </div>
+  </main>
+
+  <!-- Formulaire d'ajout -->
+  <dialog id="modal">
+    <form id="formulaire">
+      <h3>Nouvel événement</h3>
+
+      <label>Titre
+        <input type="text" name="titre" maxlength="60" required>
+      </label>
+
+      <label>Jour
+        <select name="jour">
+          <option value="0">Lundi</option>
+          <option value="1">Mardi</option>
+          <option value="2">Mercredi</option>
+          <option value="3">Jeudi</option>
+          <option value="4">Vendredi</option>
+          <option value="5">Samedi</option>
+          <option value="6">Dimanche</option>
+        </select>
+      </label>
+
+      <div class="ligne">
+        <label>Début
+          <input type="time" name="debut" value="09:00" required>
+        </label>
+        <label>Fin
+          <input type="time" name="fin" value="10:00" required>
+        </label>
+        <label>Couleur
+          <input type="color" name="couleur" value="#e0a458">
+        </label>
+      </div>
+
+      <p id="erreur" role="alert"></p>
+
+      <div class="actions">
+        <button type="button" id="btn-annuler" class="secondaire">Annuler</button>
+        <button type="submit" class="principal">Enregistrer</button>
+      </div>
+    </form>
+  </dialog>
+<p class="signature">Hadriel</p>
+  <script src="script.js"></script>
+</body>
+</html>
